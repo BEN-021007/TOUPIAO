@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数字化科室 · 团建方案 5 选 1</title>
+<style>
+:root{
+  --navy:#0f2a52; --blue:#2563eb; --blue-700:#1d4ed8;
+  --bg:#eef2f8; --card:#ffffff; --text:#1f2937; --muted:#6b7280;
+  --line:#e5e9f0; --amber:#f59e0b; --green:#16a34a; --red:#dc2626; --soft:#f5f8ff;
+  --teal:#0d9488; --sea:#0ea5e9; --rose:#e11d48; --plum:#7c3aed;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+.hero{background:linear-gradient(135deg,#0f2a52 0%,#1d4ed8 60%,#0ea5e9 100%);color:#fff;padding:42px 24px 34px;text-align:center}
+.hero h1{font-size:28px;letter-spacing:1px;margin-bottom:8px}
+.hero p{opacity:.92;font-size:14.5px;max-width:780px;margin:0 auto}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.hero .meta span{background:rgba(255,255,255,.16);padding:6px 14px;border-radius:20px;font-size:13px}
+nav{position:sticky;top:0;background:var(--navy);z-index:30;display:flex;flex-wrap:wrap;gap:4px;padding:8px 14px;justify-content:center;align-items:center}
+nav a{color:#cdd9f0;font-size:13px;padding:6px 11px;border-radius:6px;text-decoration:none}
+nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+nav .deadline{background:#f59e0b;color:#fff;font-size:12px;padding:4px 11px;border-radius:6px;margin-left:auto}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 60px}
+.block{background:var(--card);border-radius:14px;padding:26px 24px;margin-bottom:22px;box-shadow:0 2px 14px rgba(15,42,82,.06)}
+h2.section-title{font-size:22px;color:var(--navy);border-left:5px solid var(--blue);padding-left:12px;margin-bottom:8px}
+.section-sub{color:var(--muted);font-size:13.5px;margin-bottom:18px}
+h3{font-size:16px;color:var(--blue-700);margin:22px 0 8px}
+h4{font-size:14.5px;color:var(--navy);margin:14px 0 6px}
+p,li{font-size:14.5px;color:#374151}
+.muted{color:var(--muted);font-size:13px}
+
+.section-block{position:relative;border-radius:14px;padding:24px 22px 26px;margin-bottom:18px;border:1px solid var(--line);background:#fff}
+.section-block.b1{background:linear-gradient(180deg,#f5f8ff 0%,#ffffff 200px)}
+
+.opt-list{display:flex;flex-direction:column;gap:18px}
+.opt{position:relative;display:grid;grid-template-columns:88px 1fr 200px;gap:18px;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;border-top:6px solid var(--blue);box-shadow:0 2px 14px rgba(15,42,82,.05);transition:all .18s}
+.opt:hover{box-shadow:0 6px 22px rgba(15,42,82,.12);transform:translateY(-1px)}
+.opt.teal{border-top-color:var(--teal)}
+.opt.sea{border-top-color:var(--sea)}
+.opt.amber{border-top-color:var(--amber)}
+.opt.rose{border-top-color:var(--rose)}
+.opt .ico{width:88px;height:88px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:42px;background:#f5f8ff;border:1px solid var(--line)}
+.opt.teal .ico{background:#eaf7f4}
+.opt.sea .ico{background:#e6f4fb}
+.opt.amber .ico{background:#fff7e6}
+.opt.rose .ico{background:#ffe8ed}
+.opt .body h3.title{font-size:18px;color:var(--navy);margin:0 0 4px}
+.opt .body .ptag{display:inline-block;font-size:12px;padding:3px 10px;border-radius:12px;margin:0 6px 6px 0;background:#e0ecff;color:#1d4ed8;font-weight:600}
+.opt.teal .body .ptag{background:#cdeee8;color:#0d9488}
+.opt.sea .body .ptag{background:#d6f0fb;color:#0284c7}
+.opt.amber .body .ptag{background:#fff0d6;color:#b45309}
+.opt.rose .body .ptag{background:#ffd8e0;color:#be185d}
+.opt .body .ptag.wk{background:#f1e8fe;color:#6d28d9}
+.opt .desc{color:#374151;font-size:14px;margin:6px 0 8px}
+.opt ul.tags{display:flex;flex-wrap:wrap;gap:6px;padding:0;margin:0;list-style:none}
+.opt ul.tags li{background:#f1f5fb;color:#334155;font-size:12px;padding:3px 10px;border-radius:12px}
+
+.opt .vote-col{display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;background:#f8fafc;border:1px dashed var(--line);border-radius:12px;padding:12px 12px 14px;min-width:0}
+.opt .vote-col .v-title{font-size:12px;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between}
+.opt .vote-col .v-title b{color:var(--navy)}
+.vote-btn{appearance:none;border:none;cursor:pointer;width:100%;background:var(--blue);color:#fff;font-size:14.5px;font-weight:700;padding:11px 12px;border-radius:10px;transition:all .15s;letter-spacing:1px}
+.vote-btn:hover{background:var(--blue-700);transform:translateY(-1px)}
+.opt.teal .vote-btn{background:var(--teal)}
+.opt.teal .vote-btn:hover{background:#0d8278}
+.opt.sea .vote-btn{background:var(--sea)}
+.opt.sea .vote-btn:hover{background:#0284c7}
+.opt.amber .vote-btn{background:var(--amber);color:#1f1500}
+.opt.amber .vote-btn:hover{background:#d97706}
+.opt.rose .vote-btn{background:var(--rose)}
+.opt.rose .vote-btn:hover{background:#be123c}
+.vote-btn.voted{background:var(--green)!important;color:#fff!important;cursor:default;box-shadow:0 0 0 3px rgba(22,163,74,.18)}
+.vote-btn.voted:hover{transform:none}
+.bar{position:relative;height:8px;background:#e5e9f0;border-radius:4px;overflow:hidden;margin-top:6px}
+.bar > i{position:absolute;left:0;top:0;height:100%;background:var(--blue);border-radius:4px;transition:width .4s ease}
+.opt.teal .bar > i{background:var(--teal)}
+.opt.sea .bar > i{background:var(--sea)}
+.opt.amber .bar > i{background:var(--amber)}
+.opt.rose .bar > i{background:var(--rose)}
+.v-meta{font-size:12px;color:var(--muted);margin-top:4px}
+.v-meta b{color:var(--navy);font-size:14px}
+
+table{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px 10px;text-align:left}
+th{background:var(--navy);color:#fff;font-weight:600}
+tbody tr:nth-child(even){background:#f8fafc}
+tr.spare td{background:#fff7e6;color:#92400e;font-weight:600}
+tr.grand td{background:#eef4ff;color:var(--navy);font-weight:700}
+
+.tl{position:relative;margin-left:6px;padding-left:20px;border-left:3px solid var(--blue);margin-top:8px}
+.opt.teal .tl{border-left-color:var(--teal)}
+.opt.sea .tl{border-left-color:var(--sea)}
+.opt.amber .tl{border-left-color:var(--amber)}
+.opt.rose .tl{border-left-color:var(--rose)}
+.tl .it{position:relative;margin-bottom:14px}
+.tl .it::before{content:"";position:absolute;left:-28px;top:5px;width:12px;height:12px;background:var(--blue);border:3px solid #fff;border-radius:50%;box-shadow:0 0 0 2px var(--blue)}
+.opt.teal .tl .it::before{background:var(--teal);box-shadow:0 0 0 2px var(--teal)}
+.opt.sea .tl .it::before{background:var(--sea);box-shadow:0 0 0 2px var(--sea)}
+.opt.amber .tl .it::before{background:var(--amber);box-shadow:0 0 0 2px var(--amber)}
+.opt.rose .tl .it::before{background:var(--rose);box-shadow:0 0 0 2px var(--rose)}
+.tl .t{font-weight:700;color:var(--navy);font-size:13.5px}
+.tl .d{font-size:13.5px;color:#374151;margin-top:2px}
+
+.kpi{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0 12px}
+.kpi .k{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:12.5px;text-align:center}
+.kpi .k b{display:block;color:var(--navy);font-size:14px;margin-top:2px}
+.opt.teal .kpi .k b{color:var(--teal)}
+.opt.sea .kpi .k b{color:var(--sea)}
+.opt.amber .kpi .k b{color:#b45309}
+.opt.rose .kpi .k b{color:var(--rose)}
+
+.intro{background:linear-gradient(135deg,#eef4ff,#f6fbff);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:20px 22px;margin-bottom:26px}
+.intro h2{margin:0 0 6px;font-size:20px;color:var(--navy);border-left:none;padding:0}
+.intro .lead{font-size:14.5px;color:#33415c;line-height:1.7;margin:6px 0 14px}
+.intro ul{padding-left:22px}
+.intro ul li{margin-bottom:8px;font-size:14px}
+.intro ul li b{color:var(--blue-700)}
+
+.note{background:#fff7e6;border:1px solid #ffe2a8;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#7a5a00;margin-top:12px}
+.tips{background:#eafaf0;border:1px solid #b7e6c5;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#15532b}
+
+.toast{position:fixed;left:50%;top:24px;transform:translateX(-50%);background:var(--navy);color:#fff;padding:11px 18px;border-radius:999px;font-size:13.5px;box-shadow:0 8px 28px rgba(0,0,0,.22);z-index:1000;opacity:0;pointer-events:none;transition:opacity .25s, transform .25s}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(8px)}
+
+.summary{margin-top:14px;background:#0f2a52;color:#fff;border-radius:12px;padding:18px 20px;font-size:13.5px}
+.summary h4{color:#fff;margin:0 0 8px;font-size:14.5px;border-bottom:1px solid rgba(255,255,255,.18);padding-bottom:6px}
+.summary .row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13.5px}
+.summary .row .lbl{opacity:.85}
+.summary .row .val b{color:#fbbf24;font-size:15px}
+.summary .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.summary button{appearance:none;cursor:pointer;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;padding:7px 12px;border-radius:8px;font-size:13px}
+.summary button:hover{background:rgba(255,255,255,.12)}
+.summary .reset{margin-left:auto;border-color:#dc2626;color:#fecaca}
+.summary .reset:hover{background:#7f1d1d}
+
+@media(max-width:760px){
+  .opt{grid-template-columns:1fr}
+  .opt .ico{width:64px;height:64px;font-size:30px}
+  nav .deadline{width:100%;text-align:center;margin-top:6px;margin-left:0}
+  .kpi{grid-template-columns:repeat(2,1fr)}
+}
+
+.bar-fixed{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:50}
+.bar-fixed .bf{background:#0f2a52;color:#fff;border-radius:999px;padding:8px 14px;font-size:12px;box-shadow:0 6px 18px rgba(0,0,0,.18);display:flex;align-items:center;gap:8px;cursor:pointer;text-decoration:none}
+.bar-fixed .bf b{color:#fbbf24}
+.bar-fixed .bf:hover{transform:translateY(-1px)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>数字化科室 · 团建方案 5 选 1</h1>
+  <p>5 个方案单选其一：周末 3 个（石老山 / 白鹭湾 / 秀水海滩）+ 非周末 2 个（瑞竹园 / 惠丰园）</p>
+  <div class="meta">
+    <span>👥 科室 30 人</span>
+    <span>📍 日照</span>
+    <span>💰 人均 ≤ 200 元</span>
+    <span>🗳 5 选 1（单选）</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#section-a">方案 1–3 · 周末</a>
+  <span style="color:#3b5b91">|</span>
+  <a href="#section-b">方案 4–5 · 非周末</a>
+  <span style="color:#3b5b91">|</span>
+  <a href="#section-rule">📋 规则</a>
+  <a href="#section-sum">📊 汇总</a>
+</nav>
+
+<div class="wrap">
+
+<section class="intro">
+  <h2>投票说明</h2>
+  <p class="lead">方案 <b>5 选 1</b>：</p>
+  <ul>
+    <li><b>方案 1–3 · 周末一整天（可带家属）</b>：石老山生态园 / 白鹭湾牧场 / 肥家庄秀水海滩公园。</li>
+    <li><b>方案 4–5 · 非周末下班聚餐</b>：瑞竹园（济南路店）/ 惠丰园酒店，均为日照老牌餐厅。</li>
+    <li><b>单选 1 票</b>：从 5 个方案里挑 1 个最想去的投 1 票，可改投。</li>
+    <li><b>人均预算硬封顶 200 元</b>（含备用金）：周末方案 55 人含家属，非周末方案 30 人，备用金从预算池出、不追加。</li>
+    <li>投票仅保存在本机浏览器，请投票后点「复制我的投票」或截图发到群里，组织者汇总。</li>
+  </ul>
+</section>
+
+<!-- ================== 方案 1–3 · 周末 ================== -->
+<section class="block" id="section-a">
+  <div class="section-block b1">
+    <h2 class="section-title" style="margin-bottom:6px">🌿 方案 1–3 · 周末一整天（可带家属）</h2>
+    <p class="section-sub">沿用原方案「石老山 · 白鹭湾 · 秀水海滩 三选一」，自驾出行、统一烤肉套餐、人均 ≤ 200。</p>
+
+    <div class="opt-list" id="list-a">
+
+      <!-- 方案1 石老山 -->
+      <div class="opt" data-id="P1">
+        <div class="ico">🏔</div>
+        <div class="body">
+          <h3 class="title">方案 1 · 石老山生态园（周末）</h3>
+          <div>
+            <span class="ptag">东港区南湖镇</span>
+            <span class="ptag">距市区约 25 分钟</span>
+            <span class="ptag">亲子首推</span>
+          </div>
+          <p class="desc">森林覆盖率高、天然氧吧，园区含天鹅湖、栗泉溪谷、彩虹步道、古村落"十二户"、萌宠乐园（梅花鹿/羊驼/兔子）、粉黛花海、热气球，园内观光车免费。<b>离市区最近、亲子/老人最友好</b>。</p>
+
+          <div class="kpi">
+            <div class="k">🚗 车程 <b>25 分钟</b></div>
+            <div class="k">👪 人数预估 <b>55 人</b></div>
+            <div class="k">🍱 套餐数 <b>9 套</b></div>
+            <div class="k">🍖 烤肉位 <b>9 桌</b></div>
+          </div>
+          <p class="muted" style="font-size:12.5px;margin:-4px 0 6px">人数拆算：员工 30 + 成人家属 15 + 儿童 10 = 55 人（参考原方案口径）</p>
+
+          <h4>🕘 详细行程</h4>
+          <div class="tl">
+            <div class="it"><div class="t">08:30 前后 · 各自自驾出发</div><div class="d">不强求公司集合；建车队微信群、共享位置。</div></div>
+            <div class="it"><div class="t">09:30 前后 · 抵达石老山 · 自由入园</div><div class="d">观光车免费；带娃奔萌宠乐园 + 山坡滑梯，爱拍的去粉黛花海 / 热气球打卡。</div></div>
+            <div class="it"><div class="t">12:00 前后 · 重点：大草坪烤肉大餐</div><div class="d">趣盼烤肉「春游季·户外露营聚会套餐」387.2 元/套（6–7 人份，14 荤 + 素菜 + 蘸料 + 卷饼，<b>送帐篷设备</b>）；按 55 人 ≈ <b>9 套</b>。</div></div>
+            <div class="it"><div class="t">14:00 前后 · 继续自由玩</div><div class="d">古村落"十二户"慢逛（染布/拓印）、草坪飞盘；粉黛/热气球继续拍。</div></div>
+            <div class="it"><div class="t">17:00 前后 · 各自自驾返程</div><div class="d">不强制集合，安全到家群里报平安。</div></div>
+          </div>
+
+          <h4>💰 预算明细（人均 ≤ 200，含 500 备用）</h4>
+          <table>
+            <thead><tr><th>项目</th><th>计算口径</th><th>金额</th></tr></thead>
+            <tbody>
+              <tr><td>门票</td><td>员工 30×20 + 成人 15×20 + 儿童 10×10</td><td>1,000 元</td></tr>
+              <tr><td>烤肉套餐</td><td>趣盼烤肉 387.2 元/套 × 9 套</td><td>3,485 元</td></tr>
+              <tr><td>公用物料</td><td>野餐垫 / 泡泡机 / 飞盘 / 赶海桶</td><td>200 元</td></tr>
+              <tr><td>零食饮料</td><td>矿泉水 / 水果 / 小食</td><td>300 元</td></tr>
+              <tr class="spare"><td>备用金</td><td>应急医疗 / 防晒雨具 / 加菜</td><td>500 元</td></tr>
+              <tr class="grand"><td>合计</td><td>预算池 6,000 · 余 515</td><td>5,485 元</td></tr>
+            </tbody>
+          </table>
+          <ul class="tags" style="margin-top:10px">
+            <li>🚌 自驾 25 分钟</li>
+            <li>👶 老人小孩最友好</li>
+            <li>🎪 送帐篷设备</li>
+          </ul>
+        </div>
+        <div class="vote-col">
+          <div class="v-title">当前票数 <b class="cnt">0</b> · <span class="ratio">0%</span></div>
+          <div class="bar"><i style="width:0%"></i></div>
+          <button class="vote-btn" data-id="P1">👍 投给方案 1</button>
+          <div class="v-meta">人均 ≈ 183 · 余 515</div>
+        </div>
+      </div>
+
+      <!-- 方案2 白鹭湾 -->
+      <div class="opt teal" data-id="P2">
+        <div class="ico">🌾</div>
+        <div class="body">
+          <h3 class="title">方案 2 · 白鹭湾牧场（周末）</h3>
+          <div>
+            <span class="ptag">五莲县潮河镇</span>
+            <span class="ptag">距市区约 50 分钟</span>
+            <span class="ptag">最松弛最出片</span>
+          </div>
+          <p class="desc">白鹭湾美术馆小镇内的牧野谷地，<b>"大草坪 + 孤独的树"</b>小红书顶流机位。5–10 月开放草坪露营，10 公里健身步道、乡村美食市集、咖啡与树（免费）、在水美术馆（128 元）、火车公园（19 元）。</p>
+
+          <div class="kpi">
+            <div class="k">🚗 车程 <b>50 分钟</b></div>
+            <div class="k">👪 人数预估 <b>55 人</b></div>
+            <div class="k">🍱 套餐数 <b>9 套</b></div>
+            <div class="k">🍖 烤肉位 <b>9 桌</b></div>
+          </div>
+          <p class="muted" style="font-size:12.5px;margin:-4px 0 6px">人数拆算：员工 30 + 成人 15 + 儿童 10 = 55 人；儿童免费。</p>
+
+          <h4>🕘 详细行程</h4>
+          <div class="tl">
+            <div class="it"><div class="t">08:30 前后 · 各自自驾出发</div><div class="d">约 50 分钟车程，拉车队群、共享位置。</div></div>
+            <div class="it"><div class="t">09:30 前后 · 抵达白鹭湾 · 大草坪铺垫</div><div class="d">"孤独的树"合照（上午人少光线好）；湖边散步、木栈道拍照。</div></div>
+            <div class="it"><div class="t">12:00 前后 · 草坪烤肉大餐</div><div class="d">趣盼烤肉 387.2 元/套（送帐篷）× 9 套覆盖 55 人；边烤边看湖景。备选乡村美食市集。</div></div>
+            <div class="it"><div class="t">14:00 前后 · 继续自由玩</div><div class="d">湖边木栈道、露营发呆；<b>咖啡与树（免费）坐坐，日落最治愈</b>。</div></div>
+            <div class="it"><div class="t">17:00 前后 · 返程（看日落走）</div><div class="d">傍晚光线最佳，多玩会儿再看日落；到家群里报平安。</div></div>
+          </div>
+
+          <h4>💰 预算明细（人均 ≤ 200，含 500 备用）</h4>
+          <table>
+            <thead><tr><th>项目</th><th>计算口径</th><th>金额</th></tr></thead>
+            <tbody>
+              <tr><td>门票</td><td>员工 30×10 + 成人 15×10 + 儿童免费</td><td>450 元</td></tr>
+              <tr><td>烤肉套餐</td><td>趣盼烤肉 387.2 元/套 × 9 套</td><td>3,485 元</td></tr>
+              <tr><td>公用物料</td><td>野餐垫 / 泡泡机 / 飞盘</td><td>200 元</td></tr>
+              <tr><td>零食饮料</td><td>矿泉水 / 水果 / 小食</td><td>300 元</td></tr>
+              <tr class="spare"><td>备用金</td><td>防晒雨具 / 小食补给 / 周边加选</td><td>500 元</td></tr>
+              <tr class="grand"><td>合计</td><td>预算池 6,000 · 余 1,065</td><td>4,935 元</td></tr>
+            </tbody>
+          </table>
+          <ul class="tags" style="margin-top:10px">
+            <li>🚌 自驾 50 分钟</li>
+            <li>📸 孤独的树必拍</li>
+            <li>🍵 咖啡与树免费</li>
+          </ul>
+        </div>
+        <div class="vote-col">
+          <div class="v-title">当前票数 <b class="cnt">0</b> · <span class="ratio">0%</span></div>
+          <div class="bar"><i style="width:0%"></i></div>
+          <button class="vote-btn" data-id="P2">👍 投给方案 2</button>
+          <div class="v-meta">人均 ≈ 165 · 余 1,065</div>
+        </div>
+      </div>
+
+      <!-- 方案3 秀水海滩 -->
+      <div class="opt sea" data-id="P3">
+        <div class="ico">🏖</div>
+        <div class="body">
+          <h3 class="title">方案 3 · 肥家庄秀水海滩公园（周末）</h3>
+          <div>
+            <span class="ptag">山海天度假区</span>
+            <span class="ptag">距市区约 30 分钟</span>
+            <span class="ptag">免门票 · 性价比最高</span>
+          </div>
+          <p class="desc">海边草坪 + 露营烤肉 + 踏浪玩水的终极场景：自带天幕帐篷 + 卡式炉面朝大海现烤肥牛/五花肉/鲜虾/蛤蜊。<b>免门票、预算全留给食材</b>。</p>
+
+          <div class="kpi">
+            <div class="k">🚗 车程 <b>30 分钟</b></div>
+            <div class="k">👪 人数预估 <b>55 人</b></div>
+            <div class="k">🍱 套餐数 <b>9 套</b></div>
+            <div class="k">🍖 烤肉位 <b>9 桌</b></div>
+          </div>
+          <p class="muted" style="font-size:12.5px;margin:-4px 0 6px">人数拆算：员工 30 + 成人 15 + 儿童 10 = 55 人；海滩免费，停车费分摊。</p>
+
+          <h4>🕘 详细行程</h4>
+          <div class="tl">
+            <div class="it"><div class="t">08:30 前后 · 各自自驾出发</div><div class="d">约 30 分钟车程，建车队群、共享位置。</div></div>
+            <div class="it"><div class="t">09:30 前后 · 抵达秀水海滩 · 搭营地</div><div class="d">海边草坪搭天幕/帐篷、铺野餐垫，先带娃去沙滩踏浪玩水。</div></div>
+            <div class="it"><div class="t">12:00 前后 · 海边烤肉大餐（重点）</div><div class="d">卡式炉 + 烤盘：肥牛/五花肉/鲜虾/蛤蜊/蔬菜拼盘现烤 + 趣盼烤肉套餐（387.2×9 套，<b>送帐篷设备</b>），面朝大海吃肉喝酒。</div></div>
+            <div class="it"><div class="t">14:00 前后 · 继续自由玩</div><div class="d">沙滩散步、沿海骑行、赶海挖贝壳（查潮汐表）、草坪打牌聊天。</div></div>
+            <div class="it"><div class="t">17:00 前后 · 返程（看日落走）</div><div class="d">日落最佳时段，回家群里报平安。</div></div>
+          </div>
+
+          <h4>💰 预算明细（人均 ≤ 200，含 500 备用）</h4>
+          <table>
+            <thead><tr><th>项目</th><th>计算口径</th><th>金额</th></tr></thead>
+            <tbody>
+              <tr><td>门票</td><td>海滩公园免费 / 仅少量停车费</td><td>0 元</td></tr>
+              <tr><td>烤肉套餐</td><td>趣盼烤肉 387.2 元/套 × 9 套</td><td>3,485 元</td></tr>
+              <tr><td>公用物料</td><td>野餐垫 / 泡泡机 / 赶海桶 / 防晒</td><td>200 元</td></tr>
+              <tr><td>零食饮料</td><td>矿泉水 / 水果 / 小食 / 冰桶</td><td>300 元</td></tr>
+              <tr class="spare"><td>备用金</td><td>应急医疗 / 防晒 / 临时加海鲜</td><td>500 元</td></tr>
+              <tr class="grand"><td>合计</td><td>预算池 6,000 · 余 1,515</td><td>4,485 元</td></tr>
+            </tbody>
+          </table>
+          <ul class="tags" style="margin-top:10px">
+            <li>🚌 自驾 30 分钟</li>
+            <li>🌊 踏浪赶海</li>
+            <li>🎪 送帐篷设备</li>
+          </ul>
+        </div>
+        <div class="vote-col">
+          <div class="v-title">当前票数 <b class="cnt">0</b> · <span class="ratio">0%</span></div>
+          <div class="bar"><i style="width:0%"></i></div>
+          <button class="vote-btn" data-id="P3">👍 投给方案 3</button>
+          <div class="v-meta">人均 ≈ 149 · 余 1,515</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================== 方案 4–5 · 非周末 ================== -->
+<section class="block" id="section-b">
+  <div class="section-block b1">
+    <h2 class="section-title" style="margin-bottom:6px">🍽 方案 4–5 · 非周末下班聚餐（30 人 · 具体到店）</h2>
+    <p class="section-sub">时间 18:30–21:00，2 家日照老牌餐厅。人均硬封顶 200，预算池 6,000 元，含 800 元备用。</p>
+
+    <div class="opt-list" id="list-b">
+
+      <!-- 方案4 瑞竹园 -->
+      <div class="opt amber" data-id="P4">
+        <div class="ico">🍖</div>
+        <div class="body">
+          <h3 class="title">方案 4 · 瑞竹园（济南路店 · 非周末）</h3>
+          <div>
+            <span class="ptag wk">非周末</span>
+            <span class="ptag">本地老牌鲁菜</span>
+            <span class="ptag">包间多</span>
+            <span class="ptag">18:30 – 21:00</span>
+          </div>
+          <p class="desc">日照本地人常去的老牌鲁菜馆，菜品新鲜、海鲜现捞现做，包间多适合部门聚餐。<b>性价比高、分量足</b>，很适合北方胃，是工作日下班聚餐的稳妥之选。</p>
+
+          <div class="kpi">
+            <div class="k">📍 位置 <b>济南路</b></div>
+            <div class="k">👪 人数 <b>30 人</b></div>
+            <div class="k">🍲 包间 <b>3 间</b></div>
+            <div class="k">⏰ 时长 <b>2.5 h</b></div>
+          </div>
+
+          <h4>📋 招牌菜单（30 人围餐）</h4>
+          <table>
+            <thead><tr><th>类别</th><th>菜品</th></tr></thead>
+            <tbody>
+              <tr><td>硬菜</td><td>烤羊排（肉质不柴）· 红烧肉（肥而不腻）· 泉水牛肉（软烂鲜香）</td></tr>
+              <tr><td>招牌鱼</td><td>长豆角茄子红烧鱼 · 毛肚</td></tr>
+              <tr><td>海鲜</td><td>现捞现做海鲜（贝类 / 时令鱼）</td></tr>
+              <tr><td>素菜</td><td>时令青菜 × 2</td></tr>
+              <tr><td>主食酒水</td><td>手工面食 · 米饭 · 青岛啤酒 · 茶水</td></tr>
+            </tbody>
+          </table>
+
+          <h4>🕘 时间流程</h4>
+          <div class="tl">
+            <div class="it"><div class="t">18:30 前后 · 到店 · 落座</div><div class="d">各自下班到店，3 间包间打通圆桌，先上凉菜茶水。</div></div>
+            <div class="it"><div class="t">19:00 前后 · 正式开席</div><div class="d">硬菜陆续上桌，敬酒 / 开场白。</div></div>
+            <div class="it"><div class="t">20:30 前后 · 收尾</div><div class="d">加主食 / 果盘，自由交谈。</div></div>
+            <div class="it"><div class="t">21:00 前后 · 散场</div><div class="d">各自返家，群里报平安。</div></div>
+          </div>
+
+          <h4>💰 预算明细（人均 ≤ 200，含 800 备用）</h4>
+          <table>
+            <thead><tr><th>项目</th><th>计算口径</th><th>金额</th></tr></thead>
+            <tbody>
+              <tr><td>餐费</td><td>鲁菜围餐，含海鲜，人均约 117</td><td>3,500 元</td></tr>
+              <tr><td>酒水饮料</td><td>啤酒 + 茶水 + 果盘，人均 30</td><td>900 元</td></tr>
+              <tr><td>包间 / 服务费</td><td>3 间圆桌打通 × 100</td><td>300 元</td></tr>
+              <tr class="spare"><td>备用金</td><td>加菜 / 茶水追加 / 打车补差</td><td>800 元</td></tr>
+              <tr class="grand"><td>合计</td><td>预算池 6,000 · 余 500</td><td>5,500 元</td></tr>
+            </tbody>
+          </table>
+          <ul class="tags" style="margin-top:10px">
+            <li>📍 济南路店</li>
+            <li>🍖 烤羊排 / 红烧肉</li>
+            <li>💰 余 500</li>
+          </ul>
+        </div>
+        <div class="vote-col">
+          <div class="v-title">当前票数 <b class="cnt">0</b> · <span class="ratio">0%</span></div>
+          <div class="bar"><i style="width:0%"></i></div>
+          <button class="vote-btn" data-id="P4">👍 投给方案 4</button>
+          <div class="v-meta">人均 ≈ 183 · 余 500</div>
+        </div>
+      </div>
+
+      <!-- 方案5 惠丰园 -->
+      <div class="opt rose" data-id="P5">
+        <div class="ico">🐟</div>
+        <div class="body">
+          <h3 class="title">方案 5 · 惠丰园酒店（非周末）</h3>
+          <div>
+            <span class="ptag wk">非周末</span>
+            <span class="ptag">日照老店</span>
+            <span class="ptag">家常菜 + 海鲜</span>
+            <span class="ptag">18:30 – 21:00</span>
+          </div>
+          <p class="desc">日照经营多年的老店，家常菜 + 海鲜兼备，<b>剁椒鱼头、炸虾、小豆腐卷煎饼、小黄牛卷饼</b>都是招牌。口味大众、接受度高，适合全员聚餐不踩雷。</p>
+
+          <div class="kpi">
+            <div class="k">📍 位置 <b>市区老店</b></div>
+            <div class="k">👪 人数 <b>30 人</b></div>
+            <div class="k">🍲 包间 <b>3 间</b></div>
+            <div class="k">⏰ 时长 <b>2.5 h</b></div>
+          </div>
+
+          <h4>📋 招牌菜单（30 人围餐）</h4>
+          <table>
+            <thead><tr><th>类别</th><th>菜品</th></tr></thead>
+            <tbody>
+              <tr><td>招牌菜</td><td>剁椒鱼头 · 炸虾</td></tr>
+              <tr><td>特色主食</td><td>小豆腐卷山东大煎饼 · 小黄牛卷饼</td></tr>
+              <tr><td>家常菜</td><td>时令青菜 × 2 · 凉菜拼盘</td></tr>
+              <tr><td>汤品</td><td>海鲜疙瘩汤 / 时令汤</td></tr>
+              <tr><td>主食酒水</td><td>米饭 · 手工面食 · 青岛啤酒 · 茶水</td></tr>
+            </tbody>
+          </table>
+
+          <h4>🕘 时间流程</h4>
+          <div class="tl">
+            <div class="it"><div class="t">18:30 前后 · 到店 · 落座</div><div class="d">各自下班到店，包间圆桌，先上凉菜茶水。</div></div>
+            <div class="it"><div class="t">19:00 前后 · 正式开席</div><div class="d">招牌剁椒鱼头 / 炸虾上桌，敬酒开场。</div></div>
+            <div class="it"><div class="t">20:30 前后 · 收尾</div><div class="d">上特色主食（小豆腐卷煎饼 / 小黄牛卷饼）+ 果盘。</div></div>
+            <div class="it"><div class="t">21:00 前后 · 散场</div><div class="d">各自返家，群里报平安。</div></div>
+          </div>
+
+          <h4>💰 预算明细（人均 ≤ 200，含 800 备用）</h4>
+          <table>
+            <thead><tr><th>项目</th><th>计算口径</th><th>金额</th></tr></thead>
+            <tbody>
+              <tr><td>餐费</td><td>家常 + 海鲜围餐，人均约 117</td><td>3,500 元</td></tr>
+              <tr><td>酒水饮料</td><td>啤酒 + 茶水 + 果盘，人均 30</td><td>900 元</td></tr>
+              <tr><td>包间 / 服务费</td><td>3 间圆桌 × 100</td><td>300 元</td></tr>
+              <tr class="spare"><td>备用金</td><td>加菜 / 茶水追加 / 打车补差</td><td>800 元</td></tr>
+              <tr class="grand"><td>合计</td><td>预算池 6,000 · 余 500</td><td>5,500 元</td></tr>
+            </tbody>
+          </table>
+          <ul class="tags" style="margin-top:10px">
+            <li>📍 市区老店</li>
+            <li>🐟 剁椒鱼头 / 炸虾</li>
+            <li>💰 余 500</li>
+          </ul>
+        </div>
+        <div class="vote-col">
+          <div class="v-title">当前票数 <b class="cnt">0</b> · <span class="ratio">0%</span></div>
+          <div class="bar"><i style="width:0%"></i></div>
+          <button class="vote-btn" data-id="P5">👍 投给方案 5</button>
+          <div class="v-meta">人均 ≈ 183 · 余 500</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tips" style="margin-top:18px">
+      💡 两家均为日照老牌餐厅，建议提前 1 周预约包间；若临时有人不能出席，按现场实到人数调整点单，差价从 800 元备用金列支，最后报账对账。
+    </div>
+  </div>
+</section>
+
+<!-- ================== 投票规则 ================== -->
+<section class="block" id="section-rule">
+  <h2 class="section-title">📋 投票规则</h2>
+  <ul style="padding-left:22px;margin:6px 0 0;font-size:14.5px">
+    <li><b>5 选 1（单选）</b>：5 个方案都开放查看；从 5 个里选 1 个最想去的方案投 1 票。</li>
+    <li><b>可改投</b>：点其他方案的「👍 投给方案 X」会把原方案 -1、新方案 +1，跨板块也可改投。</li>
+    <li><b>预算池硬封顶</b>：周末方案 55 人（含家属）预算池 6,000 元、非周末方案 30 人预算池 6,000 元，均人均 ≤ 200 元，备用金从池里出、不追加。</li>
+    <li><b>数据</b>：投票数据仅存在本机浏览器，请投票完毕后点击「复制我的投票」或截图发到群里，组织者统一汇总。</li>
+    <li><b>得票过半即定档</b>；若平票由科室负责人组织二次会议二选一。</li>
+  </ul>
+</section>
+
+<!-- ================== 投票汇总 ================== -->
+<section class="block" id="section-sum">
+  <h2 class="section-title">📊 当前投票汇总（实时本机）</h2>
+  <p class="section-sub">以下为本机已投情况。要看到全科汇总请把每位同事的截图发到群里。</p>
+  <div class="summary" id="summary">
+    <h4>🌿 方案 1–3 · 周末</h4>
+    <div class="row" data-sum-row="P1"><span class="lbl">方案 1 · 石老山生态园</span><span class="val"><b>0</b> 票 (0%)</span></div>
+    <div class="row" data-sum-row="P2"><span class="lbl">方案 2 · 白鹭湾牧场</span><span class="val"><b>0</b> 票 (0%)</span></div>
+    <div class="row" data-sum-row="P3"><span class="lbl">方案 3 · 秀水海滩</span><span class="val"><b>0</b> 票 (0%)</span></div>
+
+    <h4 style="margin-top:14px">🍽 方案 4–5 · 非周末</h4>
+    <div class="row" data-sum-row="P4"><span class="lbl">方案 4 · 瑞竹园</span><span class="val"><b>0</b> 票 (0%)</span></div>
+    <div class="row" data-sum-row="P5"><span class="lbl">方案 5 · 惠丰园</span><span class="val"><b>0</b> 票 (0%)</span></div>
+
+    <div class="actions">
+      <button id="btn-copy">📋 复制我的投票</button>
+      <button id="btn-share">🔗 复制页面链接</button>
+      <button id="btn-print">🖨 打印 / 存 PDF</button>
+      <button class="reset" id="btn-reset">♻ 重置本机</button>
+    </div>
+    <div style="margin-top:10px;font-size:12.5px;opacity:.75" id="my-pick-line">尚未投票 · 选完后这里会显示你的选择</div>
+  </div>
+</section>
+
+<footer style="text-align:center;color:var(--muted);font-size:12.5px;padding:20px">
+  数字化科室 · 团建投票 · 本页为内部参考 · 投票数据仅保存在浏览器本机 · 餐饮报价以实际商家为准 · 方案 1–3 引用自原方案「科室团建方案 · 石老山 · 白鹭湾 · 秀水海滩 三选一」
+</footer>
+
+</div>
+
+<!-- 浮动按钮 -->
+<div class="bar-fixed">
+  <div class="bf" onclick="location.href='#section-a'">🌿 周末</div>
+  <div class="bf" onclick="location.href='#section-b'">🍽 非周末</div>
+  <div class="bf" onclick="location.href='#section-sum'">📊 汇总</div>
+  <div class="bf" style="background:#16a34a">我的选择 <b id="bf-pick">未投</b></div>
+</div>
+
+<div class="toast" id="toast">提示</div>
+
+<script>
+(function(){
+  var STORAGE_VOTE   = 'tuandu5_pick_v1';
+  var STORAGE_BALLOT = 'tuandu5_ballot_v1';
+  var toast = document.getElementById('toast');
+  var allOptIds = ['P1','P2','P3','P4','P5'];
+  var optNames = {
+    P1:'方案1 石老山生态园（周末）', P2:'方案2 白鹭湾牧场（周末）', P3:'方案3 秀水海滩（周末）',
+    P4:'方案4 瑞竹园（非周末）',      P5:'方案5 惠丰园（非周末）'
+  };
+  var shortNames = {
+    P1:'石老山', P2:'白鹭湾', P3:'秀水海滩', P4:'瑞竹园', P5:'惠丰园'
+  };
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 1700);
+  }
+  function getPick(){ var v = localStorage.getItem(STORAGE_VOTE); return allOptIds.indexOf(v)>=0 ? v : null; }
+  function setPick(v){ if(!v){ localStorage.removeItem(STORAGE_VOTE); } else { localStorage.setItem(STORAGE_VOTE, v); } }
+  function loadBallot(){ try { return JSON.parse(localStorage.getItem(STORAGE_BALLOT) || '{}'); } catch(e){ return {}; } }
+  function saveBallot(b){
+    var clean = {}; allOptIds.forEach(function(k){ clean[k] = b[k]||0; });
+    localStorage.setItem(STORAGE_BALLOT, JSON.stringify(clean));
+    return clean;
+  }
+  function totalVotes(b){ var sum=0; allOptIds.forEach(function(k){ sum += (b[k]||0); }); return sum; }
+
+  if (!localStorage.getItem(STORAGE_BALLOT)) saveBallot({P1:0,P2:0,P3:0,P4:0,P5:0});
+
+  function refreshUI(){
+    var pick = getPick();
+    var ballot = loadBallot();
+    var total = totalVotes(ballot);
+    allOptIds.forEach(function(id){
+      var card = document.querySelector('.opt[data-id="'+id+'"]');
+      if(!card) return;
+      var n = ballot[id]||0;
+      card.querySelector('.cnt').textContent = n;
+      var ratio = total>0 ? Math.round(n/total*100) : 0;
+      card.querySelector('.ratio').textContent = ratio + '%';
+      card.querySelector('.bar i').style.width = ratio + '%';
+      var btn = card.querySelector('.vote-btn');
+      if(pick === id){ btn.classList.add('voted'); btn.textContent = '✓ 已投给 ' + id; }
+      else { btn.classList.remove('voted'); btn.textContent = '👍 投给 ' + id; }
+    });
+    refreshSummary(ballot, total, pick);
+  }
+
+  function refreshSummary(b, total, pick){
+    allOptIds.forEach(function(id){
+      var row = document.querySelector('[data-sum-row="'+id+'"]');
+      var n = b[id]||0;
+      var ratio = total>0 ? Math.round(n/total*100) : 0;
+      row.querySelector('.val').innerHTML = '<b>'+n+'</b> 票 ('+ratio+'%)';
+    });
+    var pickTxt = pick ? optNames[pick] : '未投';
+    document.getElementById('my-pick-line').textContent = pick ? ('✓ 我的选择：' + pickTxt) : '尚未投票 · 选完后这里会显示你的选择';
+    document.getElementById('bf-pick').textContent = pick ? shortNames[pick] : '未投';
+  }
+
+  document.querySelectorAll('.vote-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.dataset.id;
+      var pick = getPick();
+      var ballot = loadBallot();
+      if(pick === id){ showToast('你已投过「' + id + '」· 如要改投请点其他方案'); return; }
+      if(pick){ ballot[pick] = Math.max(0, (ballot[pick]||0) - 1); }
+      ballot[id] = (ballot[id]||0) + 1;
+      setPick(id); saveBallot(ballot);
+      refreshUI();
+      if(pick){ showToast('已从「'+pick+'」改投到「'+id+'」'); }
+      else { showToast('投票成功 · 已投给「'+id+'」'); }
+    });
+  });
+
+  document.getElementById('btn-copy').addEventListener('click', function(){
+    var pick = getPick();
+    if(!pick){ showToast('还没投票，先选个方案吧'); return; }
+    var txt = '【数字化科室团建投票 · 5选1】\n我的首选：'+optNames[pick]+'\n（姓名：________）';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ showToast('已复制 · 请发到群里'); }, function(){ fallback(txt); });
+    } else fallback(txt);
+    function fallback(t){
+      var ta = document.createElement('textarea'); ta.value = t; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta); showToast('已复制 · 请发到群里');
+    }
+  });
+
+  document.getElementById('btn-share').addEventListener('click', function(){
+    var url = location.href;
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(function(){ showToast('链接已复制 · 直接发给同事'); });
+    } else {
+      var ta = document.createElement('textarea'); ta.value = url; document.body.appendChild(ta);
+      ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+      showToast('链接已复制 · 直接发给同事');
+    }
+  });
+  document.getElementById('btn-print').addEventListener('click', function(){ window.print(); });
+  document.getElementById('btn-reset').addEventListener('click', function(){
+    if(!confirm('确认清空本机所有投票与票数？')) return;
+    localStorage.removeItem(STORAGE_VOTE);
+    localStorage.removeItem(STORAGE_BALLOT);
+    saveBallot({P1:0,P2:0,P3:0,P4:0,P5:0});
+    refreshUI();
+    showToast('已重置');
+  });
+
+  document.querySelectorAll('nav a').forEach(function(a){
+    a.addEventListener('click', function(){ setTimeout(refreshUI, 200); });
+  });
+
+  refreshUI();
+})();
+</script>
+
+</body>
+</html>
